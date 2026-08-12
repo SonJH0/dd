@@ -42,7 +42,7 @@ AI가 딱 맞는 메뉴를 추천해드립니다. 🤖
 ### 실패 처리 기준
 | 상황 | 안내 메시지 |
 |------|------------|
-| **API 오류 (4xx/5xx)** | "😥 오류가 생겼어요. 다시 시도해주세요!" |
+| **로딩 지연** | "😋 AI가 메뉴를 고민하는 중..." |
 
 ---
 
@@ -59,7 +59,7 @@ AI가 딱 맞는 메뉴를 추천해드립니다. 🤖
 
 ## 🛠️ 3. 기술 스택
 
-### Frontend (순수 바닐라)
+### Frontend 
 ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
 ![JS](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
@@ -134,8 +134,20 @@ GitHub에 push할 때마다 Vercel이 자동으로 재배포합니다.
 
 💻 데스크톱 화면
 
+<img width="1879" height="933" alt="image" src="https://github.com/user-attachments/assets/75448a09-681a-4a4f-9187-1ab0fa2a5a97" />
+<img width="1872" height="918" alt="image" src="https://github.com/user-attachments/assets/d45e302f-fc63-4171-ac52-839915761c80" />
+<img width="814" height="930" alt="image" src="https://github.com/user-attachments/assets/0f906569-edda-4a2f-b77a-e8ccb821219c" />
+<img width="705" height="866" alt="image" src="https://github.com/user-attachments/assets/c9c88198-9ddb-4ecf-ada8-8d97c2f7cf84" />
+<img width="747" height="926" alt="image" src="https://github.com/user-attachments/assets/cb4d36f1-d390-4cc5-aae4-f01dd43a77af" />
+
+
+
 
 📱 모바일 화면
 
+<img width="585" height="1266" alt="IMG_7760" src="https://github.com/user-attachments/assets/d542605f-9e10-4b76-81e5-d5362115fd01" />
+<img width="585" height="1266" alt="IMG_7761" src="https://github.com/user-attachments/assets/1750fabc-fa2a-4dd6-b4da-68b176fe6964" />
+<img width="585" height="1266" alt="IMG_7762" src="https://github.com/user-attachments/assets/a166212b-b870-4a8d-bef5-6a73ebfd1a1e" />
+<img width="585" height="1266" alt="IMG_7763" src="https://github.com/user-attachments/assets/4c990a6a-2f00-42bc-9108-4983890df576" />
+<img width="585" height="1266" alt="IMG_7764" src="https://github.com/user-attachments/assets/305a9bfe-fcc8-4a76-b6c7-ca7857c7f4d3" />
 
-🤖 AI 기능 동작 장면
