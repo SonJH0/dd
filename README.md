@@ -42,6 +42,7 @@ AI가 딱 맞는 메뉴를 추천해드립니다. 🤖
 ### 실패 처리 기준
 | 상황 | 안내 메시지 |
 |------|------------|
+| **API 오류 (4xx/5xx)** | "😥 오류가 생겼어요. 다시 시도해주세요!" |
 | **로딩 지연** | "😋 AI가 메뉴를 고민하는 중..." |
 
 ---
@@ -96,24 +97,30 @@ AI가 딱 맞는 메뉴를 추천해드립니다. 🤖
 
 ## 🔐 5. 환경 변수 설정
 
-필요한 환경 변수
-변수명	설명
-GEMINI_API_KEY	Google Gemini API 키
-로컬 개발 시
 프로젝트 루트에 .env 파일 생성:
 
 GEMINI_API_KEY=여기에_본인_API_키_입력
+
 Vercel 배포 시
+
 Vercel 프로젝트 → Settings
+
 Environment Variables 메뉴
+
 GEMINI_API_KEY 추가 후 저장
 
 ## 🌐 6. 배포 방법
+
 GitHub에 코드 push
+
 Vercel과 GitHub 저장소 연동
+
 Framework Preset: Other 선택
+
 환경 변수 GEMINI_API_KEY 등록
+
 Deploy 클릭 → 자동 배포 완료!
+
 GitHub에 push할 때마다 Vercel이 자동으로 재배포합니다.
 
 데이터 흐름 구조
@@ -124,13 +131,6 @@ GitHub에 push할 때마다 Vercel이 자동으로 재배포합니다.
 
 
 ## 🧪 7. AI 기능 테스트
-
-
-테스트 케이스	입력	결과
-정상 입력	우울함 / 한식 / 2명	✅ 추천 결과 화면에 표시
-
-
-## 📸 8. 스크린샷
 
 💻 데스크톱 화면
 
