@@ -130,6 +130,7 @@ python brand_generator.py
 
 <img width="774" height="805" alt="image" src="https://github.com/user-attachments/assets/e43bbaa4-bba7-4b5e-a83c-b187dfc489ad" />
 
+* input의 브리프 파일 경로와 output의 출력 폴더 경로의 경우 아무것도 입력하지 않고 엔터만 누르면 작동하도록 코드를 짰습니다.
 
 ---
 
