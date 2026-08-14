@@ -89,21 +89,17 @@ brand_generator/
 
 ### 1) 저장소
 ```bash
-[brand_generator](https://github.com/SonJH0/brand_generator)
+https://github.com/SonJH0/brand_generator
 ```
 
-### 2) 의존성 설치
-```bash
-pip install -r requirements.txt
-```
 
-### 3) API 키 설정 (`.env` 파일 생성)
+### 2) API 키 설정 (`.env` 파일 생성)
 ```env
 GROQ_API_KEY=your_groq_api_key
 HF_TOKEN=your_huggingface_token
 ```
 
-### 4) 실행
+### 3) 실행
 ```bash
 python brand_generator.py
 ```
@@ -157,18 +153,30 @@ python brand_generator.py
 
 ---
 
-## 10. ✅ 요구사항 대비 완료 현황
+## 10. 최종 결과물
+
+<img width="1901" height="993" alt="image" src="https://github.com/user-attachments/assets/7666ef57-4295-4eaf-8eb7-16dcfcbf5ca6" />
+<img width="1903" height="1002" alt="image" src="https://github.com/user-attachments/assets/686468fd-cb93-45fc-ba52-ce312b85fe03" />
+<img width="1892" height="1004" alt="image" src="https://github.com/user-attachments/assets/9b0ef6c3-cb8a-45de-a1a0-6b6e490b2be5" />
+<img width="1914" height="1013" alt="image" src="https://github.com/user-attachments/assets/036b13e6-13ca-48b8-8b31-79ec726d499b" />
+<img width="1906" height="1004" alt="image" src="https://github.com/user-attachments/assets/ecfad147-786d-4e87-9197-230583070841" />
+
+
+
+---
+
+## 11. ✅ 요구사항 대비 완료 현황
 
 | 요구사항 | 완료 | 설명 |
 |----------|:----:|------|
 | 사용자 입력 (print/input 대화형) | ✅ | 브리프 경로 필수, 출력 폴더 선택(기본 `./output`) |
 | 브랜드 브리프 입력 (JSON) | ✅ | 필수/선택 필드 파싱 |
-| 브랜드 네이밍 생성 (3~5개+의미) | ✅ | 4개 생성 |
+| 브랜드 네이밍 생성 (3~5개+의미) | ✅ | 3개 생성 |
 | 슬로건 생성 (3개) | ✅ | 톤앤매너 반영 |
 | 브랜드 스토리 (300자) | ✅ | 탄생 배경·철학·비전 포함 |
 | 컬러 팔레트 (메인1+서브2~3) | ✅ | HEX 코드로 생성 |
 | 컬러 팔레트 시각화 (PNG) | ✅ | matplotlib 저장 |
-| 로고 시안 생성 (2~3개 PNG) | ✅ | HuggingFace로 2개 생성 |
+| 로고 시안 생성 (2~3개 PNG) | ✅ | HuggingFace로 2~3개 생성 |
 | 결과 저장 (JSON+PNG) | ✅ | `brand_result.json` + 개별 PNG |
 | 에러 처리 | ✅ | API 실패 시 다음 단계 계속 진행 |
 | API 키 관리 | ✅ | `.env` 환경변수 사용 |
@@ -176,7 +184,7 @@ python brand_generator.py
 
 ---
 
-## 11. ⚠️ 에러 처리 전략
+## 12. ⚠️ 에러 처리 전략
 
 | 상황 | 대응 방법 |
 |------|-----------|
@@ -186,7 +194,7 @@ python brand_generator.py
 
 ---
 
-## 12. 📝 배운 점 (과제 목표 달성)
+## 13. 📝 배운 점 (과제 목표 달성)
 
 - ✅ 브랜드 브리프를 입력받아 AI로 브랜드 요소를 생성하는 **파이프라인**을 설계했다.
 - ✅ **LLM API + 이미지 생성 API를 조합**하여 텍스트 + 이미지 결과물을 생성하는 방법을 익혔다.
