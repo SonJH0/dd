@@ -87,10 +87,9 @@ brand_generator/
 
 ## 6. 🚀 설치 및 실행
 
-### 1) 저장소 클론
+### 1) 저장소
 ```bash
-git clone https://github.com/your-id/brand_generator.git
-cd brand_generator
+[brand_generator](https://github.com/SonJH0/brand_generator)
 ```
 
 ### 2) 의존성 설치
@@ -119,7 +118,7 @@ python brand_generator.py
   "target": "20-30대 인스타 감성 고객",
   "keywords": ["따뜻함", "세련됨", "트렌디", "편안함"],
   "tone": "감성적이고 세련된",
-  "competitors": ["스타벅스", "블루보틀"],
+  "competitors": ["스타벅스", "투썸플레이스"],
   "notes": "인스타그램에 어울리는 미니멀한 브랜드"
 }
 ```
@@ -133,30 +132,8 @@ python brand_generator.py
 
 ## 8. 💻 실행 예시
 
-```
-🎨 AI 브랜드 아이덴티티 생성기
+<img width="774" height="805" alt="image" src="https://github.com/user-attachments/assets/e43bbaa4-bba7-4b5e-a83c-b187dfc489ad" />
 
-브리프 파일 경로를 입력하세요: brief.json
-출력 폴더 경로를 입력하세요 (엔터 시 ./output):
-
-[1/5] 브랜드 네이밍 생성 중...
-  - JAMUSE (자뮤즈): 잼처럼 달콤한 뮤즈, 영감을 주는 공간
-  - ...
-[2/5] 슬로건 생성 중...
-  - "따뜻한 한 잔의 영감"
-  - ...
-[3/5] 브랜드 스토리 생성 중...
-  - 스토리 생성 완료 (298자)
-[4/5] 컬러 팔레트 생성 중...
-  - 메인: #F7D2C4
-  - 서브: #964B00, #C9E4CA, #FFC5C5
-  - 저장: ./output/color_palette.png
-[5/5] 로고 이미지 생성 중...
-  ✅ 로고 1 저장 완료: ./output/logo_1.png
-  ✅ 로고 2 저장 완료: ./output/logo_2.png
-
-✅ 완료! ./output/ 폴더를 확인하세요.
-```
 
 ---
 
