@@ -51,6 +51,9 @@ CLI 기반 Python 프로그램 1개로 아래 기능을 모두 구현했습니�
 * 로고를 3개 만들도록 프롬프트를 설개했으나 완성하는 도중 무료토큰의 소진으로 두 개 밖에 만들지 못했습니다. 다만 에러 처리 과정에 따라 이미 생성된 로고는 자동 저장되고 3번째 로고는 토큰부족으로 만들지 못했다는 알림이 왔습니다.
 * 로고 생성 중 만들었던 네이밍과 다른 글자가 로고에 첨부되는 일이 발생하여 프롬프트에 'no word'를 추가했습니다.
 
+<img width="748" height="55" alt="image" src="https://github.com/user-attachments/assets/a264be8b-1dcd-44c6-9016-4eeaaa524821" />
+
+
 
 - **메인 컬러**: `#F7D2C4`
 - **서브 컬러**: `#964B00`, `#C9E4CA`, `#FFC5C5`
@@ -106,23 +109,23 @@ python brand_generator.py
 
 ---
 
-## 7. 📥 입력 예시 (`brief.json`)
+## 7. 📥 브랜드 브리프
 
 ```json
 {
-  "industry": "카페",
-  "target": "20-30대 인스타 감성 고객",
-  "keywords": ["따뜻함", "세련됨", "트렌디", "편안함"],
-  "tone": "감성적이고 세련된",
-  "competitors": ["스타벅스", "투썸플레이스"],
-  "notes": "인스타그램에 어울리는 미니멀한 브랜드"
+  "industry": "인스타용 카페",
+  "target_audience": "20-30대 SNS에 관심 많은 직장인",
+  "keywords": ["세련됨", "화제성", "편안함", "깔끔함"],
+  "tone": "따뜻하고 친근한",
+  "language": "ko",
+  "competitors": ["투썸플레이스", "스타벅스"]
 }
 ```
 
 | 구분 | 필드 |
 |------|------|
 | **필수** | `industry`(업종), `target`(타겟), `keywords`(키워드) |
-| **선택** | `tone`(톤앤매너), `competitors`(경쟁사), `notes`(추가 요청) |
+| **선택** | `tone`(톤앤매너), `competitors`(경쟁사), `language`(언어) |
 
 ---
 
@@ -130,7 +133,7 @@ python brand_generator.py
 
 <img width="774" height="805" alt="image" src="https://github.com/user-attachments/assets/e43bbaa4-bba7-4b5e-a83c-b187dfc489ad" />
 
-* input의 브리프 파일 경로와 output의 출력 폴더 경로의 경우 아무것도 입력하지 않고 엔터만 누르면 작동하도록 코드를 짰습니다.
+
 
 ---
 
@@ -154,7 +157,62 @@ python brand_generator.py
 
 ---
 
-## 10. 최종 결과물
+## 10. 에러처리
+
+<img width="705" height="868" alt="image" src="https://github.com/user-attachments/assets/57323cd3-7213-455b-8e08-125c44e1dda6" />
+
+<img width="790" height="258" alt="image" src="https://github.com/user-attachments/assets/f49768f4-ed9f-4049-9834-731229aeadca" />
+
+<img width="832" height="279" alt="image" src="https://github.com/user-attachments/assets/8aad4b36-4400-454d-a0ab-61555197a7b0" />
+
+
+
+1. 그록의 api가 등록되지 않았을 경우 '❌ GROQ_API_KEY가 없습니다. .env 파일을 확인하세요.'라는 알림이 갑니다.
+
+2. 어떤 이유로든 그록의 api 호출이 실패되면 '⚠️ API 호출 실패'라는 알림이 갑니다.
+
+3. 이미지 생성 ai인 hugging face의 api가 없을 경우 '⚠️ HF_API_KEY가 없어 이미지 자동 생성을 건너뜁니다.'라는 알림이 갑니다.
+
+4. hugging face의 로딩이 지체되면 '모델 로딩 중... 30초 대기', 오류가 발생하면 '❌ 401 인증 오류: HF_API_KEY를 확인하세요.'라는 알림이 가고 곧바로 다음으로 넘어갑니다.
+
+---
+
+## 12. 각 코드의 역할 및 설명
+
+| 역할 | 담당 함수/모듈 | 제안설명 |
+| :--- | :--- | :--- |
+| **입력 로드** | `load_brief()` | brief.json 읽기 및 필수 필드 확인 |
+| **프롬프트 생성** | `build_prompt()` | 단계별 LLM 프롬프트 생성 |
+| **LLM 호출** | `call_groq()` | Groq API 호출 및 응답 수신 |
+| **이미지 생성** | `generate_logo()` | HuggingFace API로 로고 생성 |
+| **저장** | `save_result()` | JSON, PNG 파일 저장 |
+| **에러 처리** | `record_error()` | 실패 정보를 errors 필드에 누적 |
+
+---
+
+## 13. 프롬프트
+
+<img width="823" height="803" alt="image" src="https://github.com/user-attachments/assets/94cc2edc-48fc-487d-b75a-4ae2906619ce" />
+
+* input의 브리프 파일 경로와 output의 출력 폴더 경로의 경우 아무것도 입력하지 않고 엔터만 누르면 작동하도록 코드를 짰습니다.
+
+<img width="565" height="767" alt="image" src="https://github.com/user-attachments/assets/6691bff2-6176-44f3-899d-427a4b1ae196" />
+<img width="564" height="722" alt="image" src="https://github.com/user-attachments/assets/93f0e917-f173-4be9-bd8d-ae09d07df6b4" />
+<img width="793" height="640" alt="image" src="https://github.com/user-attachments/assets/b04500a5-deff-4084-9091-0bce2d6a7fe6" />
+<img width="923" height="962" alt="image" src="https://github.com/user-attachments/assets/dfb649be-20e5-43f8-9d30-66b820845fb8" />
+<img width="803" height="663" alt="image" src="https://github.com/user-attachments/assets/a5e86f50-16e3-4f1c-a300-8018cd0cd5ff" />
+
+* 로고를 만들기 위한 outcome들을 만들어 냅니다.
+
+<img width="706" height="750" alt="image" src="https://github.com/user-attachments/assets/eae8bdf6-5391-42ed-8b7b-94ee37963d5f" />
+
+* 이미지 같은 경우는 이런 식으로 총 3개의 예시 로고를 만들도록 하였습니다.
+* 만약 중간에 오류가 발생하거나 토큰이 부족하여 사진 생성에 실패하더라도 그 전에 만들어진 1,2,3,4 단계의 내용과 이미 만들어진 로고 이미지 역시 날라가지 않고 json파일에 저장되도록 했습니다.
+
+
+---
+
+## 14. 최종 결과물
 
 <img width="1901" height="993" alt="image" src="https://github.com/user-attachments/assets/7666ef57-4295-4eaf-8eb7-16dcfcbf5ca6" />
 <img width="1903" height="1002" alt="image" src="https://github.com/user-attachments/assets/686468fd-cb93-45fc-ba52-ce312b85fe03" />
@@ -166,7 +224,7 @@ python brand_generator.py
 
 ---
 
-## 11. ✅ 요구사항 대비 완료 현황
+## 15. ✅ 요구사항 대비 완료 현황
 
 | 요구사항 | 완료 | 설명 |
 |----------|:----:|------|
@@ -179,25 +237,6 @@ python brand_generator.py
 | 컬러 팔레트 시각화 (PNG) | ✅ | matplotlib 저장 |
 | 로고 시안 생성 (2~3개 PNG) | ✅ | HuggingFace로 2~3개 생성 |
 | 결과 저장 (JSON+PNG) | ✅ | `brand_result.json` + 개별 PNG |
-| 에러 처리 | ✅ | API 실패 시 다음 단계 계속 진행 |
+| 에러 처리 | ✅ | API 실패 하더라도 다음 단계 계속 진행, 그 후 에러가 뜨지 않은 항목만 따로 저장 |
 | API 키 관리 | ✅ | `.env` 환경변수 사용 |
 | **[보너스]** 경쟁사 분석 | ✅ | 차별화 포인트 제안 |
-
----
-
-## 12. ⚠️ 에러 처리 전략
-
-| 상황 | 대응 방법 |
-|------|-----------|
-| API 키 없음 | 명확한 안내 메시지 출력 후 종료 |
-| API 호출 실패 | 에러 메시지 출력 후 **다음 단계 계속 진행** |
-| 이미지 크레딧 소진(402) | 경고 출력, 이미 생성된 로고는 정상 저장 |
-
----
-
-## 13. 📝 배운 점 (과제 목표 달성)
-
-- ✅ 브랜드 브리프를 입력받아 AI로 브랜드 요소를 생성하는 **파이프라인**을 설계했다.
-- ✅ **LLM API + 이미지 생성 API를 조합**하여 텍스트 + 이미지 결과물을 생성하는 방법을 익혔다.
-- ✅ LLM이 추천한 HEX 코드를 **matplotlib로 시각화**하여 이미지로 저장하는 방법을 익혔다.
-- ✅ API 호출 시 발생하는 **오류 상황과 대응 방법**(예외 처리, 키 관리)을 이해했다.
